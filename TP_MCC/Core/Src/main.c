@@ -196,7 +196,6 @@ int main(void)
 			  HAL_UART_Transmit(&huart2, pinout, sizeof(pinout), HAL_MAX_DELAY);
 		  }
 		  else if(strcmp(argv[0],"start")==0){
-			  //startMotor();  // Pas sur que y'ai besoin
 			  HAL_UART_Transmit(&huart2, powerOn, sizeof(powerOn), HAL_MAX_DELAY);
 			  startMotor();
 		  }
