@@ -58,27 +58,35 @@ TIM_HandleTypeDef htim1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-const uint8_t prompt[]="user@Nucleo-STM32G747>>";
-const uint8_t initialisation[]="Initialisation des moteurs\r\n";
+const uint8_t prompt[]="user@Nucleo-STM32G474>>";
+const uint8_t initialisation[]="Motor initialization\r\n";
 const uint8_t started[]=
 		"\r\n*-----------------------------*"
-		"\r\n| Welcome on Nucleo-STM32G747 |"
+		"\r\n| Welcome on Nucleo-STM32G474 |"
 		"\r\n*-----------------------------*"
 		"\r\n";
 const uint8_t newline[]="\r\n";
 const uint8_t help[]="\r\nYou can use the following functions :"
 		"\r\n pinout : To show the list of the pin."
+		"\r\n init : To initialize the motor."
 		"\r\n start : To start the motor."
 		"\r\n stop : To stop the motor."
+		"\r\n speed = alpha : To set the motor speed to alpha."
+		"\r\n       - alpha = 0 : maximum speed in one direction of rotation."
+		"\r\n       - alpha = 1024 : maximum speed in the other direction of rotation."
+		"\r\n       - alpha = 512 : initial speed, the motor is stopped."
+		"\r\n /!| Too great a difference in speed will cause the motor to stop."
 		"\r\n";
 const uint8_t pinout[]="\r\nList of the pins :"
-		"\r\n PA5 : LED"
-		"\r\n PA3 : UART2_RX"
-		"\r\n PA2 : UART2_TX"
-		"\r\n PA8 : PWM CH1"
-		"\r\n PA9 : PWM CH2"
-		"\r\n PA11 : PWM CH1N"
-		"\r\n PA12 : PWM CH2N"
+		"\r\n*-------------------------------------------------------------------*"
+		"\r\n|20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 x  x|"
+		"\r\n|1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 x  x  x|"
+		"\r\n*-------------------------------------------------------------------*"
+		"\r\n 11 : Blue Phase Top -> CH1 (PA8)"
+		"\r\n 12 : Yellow Phase Top -> CH2 (PA9)"
+		"\r\n 29 : Blue Phase Bottom -> CH1N (PA11)"
+		"\r\n 30 : Yellow Phase Bottom -> CH2N (PA12)"
+		"\r\n 33 : Fault Reset Command -> ISO_RESET (PC3)"
 		"\r\n";
 const uint8_t powerOn[]="Power ON\r\n";			// Fait demarrer le moteur
 const uint8_t powerOff[]="Power OFF\r\n";		// Fait arrêter le moteur
@@ -158,7 +166,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  // uartRxReceived is set to 1 when a new character is received on uart 1
+	  // uartRxReceived is set to 1 when a new character is received on uart
 	  if(uartRxReceived){
 		  switch(uartRxBuffer[0]){
 		  // Nouvelle ligne, instruction à traiter
@@ -189,24 +197,30 @@ int main(void)
 	  }
 
 	  if(newCmdReady){
+		  // Affiche la liste des commandes utilisables
 		  if(strcmp(argv[0],"help")==0){
 			  HAL_UART_Transmit(&huart2, help, sizeof(help), HAL_MAX_DELAY);
 		  }
+		  // Affiche la liste des pins configurés
 		  else if(strcmp(argv[0],"pinout")==0){
 			  HAL_UART_Transmit(&huart2, pinout, sizeof(pinout), HAL_MAX_DELAY);
 		  }
+		  // Démarre le moteur
 		  else if(strcmp(argv[0],"start")==0){
 			  HAL_UART_Transmit(&huart2, powerOn, sizeof(powerOn), HAL_MAX_DELAY);
 			  startMotor();
 		  }
+		  // Stop le moteur
 		  else if(strcmp(argv[0],"stop")==0){
 			  HAL_UART_Transmit(&huart2, powerOff, sizeof(powerOff), HAL_MAX_DELAY);
 			  stopMotor();
 		  }
+		  // Initialise le moteur
 		  else if(strcmp(argv[0],"init")==0){
 			  HAL_UART_Transmit(&huart2, initialisation, sizeof(initialisation), HAL_MAX_DELAY);
 			  init();
 		  }
+		  // Fonction cachée de débugage du shell
 		  else if(strcmp(argv[0],"set")==0){
 			  if(strcmp(argv[1],"PA5")==0){
 				  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, atoi(argv[2]));
@@ -217,11 +231,12 @@ int main(void)
 				  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			  }
 		  }
-		  else if(strcmp(argv[0],"speed")==0){ // Permet de choisir la valeur de la vitesse de la façon "speed = XXXX" la vauer est bornée entre 0 et 1023.
+		  // Choisir la valeur de la vitesse de la façon "speed = XXXX" avec une valeur bornée entre 0 et 1023.
+		  else if(strcmp(argv[0],"speed")==0){
 			  if(strcmp(argv[1],"=")==0){
-				  if(atoi(argv[2]) >= 1024){sprintf((char *)uartTxBuffer,"La vitesse du moteur est : %d\r\n",1023);}
-				  else if(atoi(argv[2]) <= 0){sprintf((char *)uartTxBuffer,"La vitesse du moteur est : %d\r\n",0);}
-				  else{sprintf((char *)uartTxBuffer,"La vitesse du moteur est : %d\r\n",atoi(argv[2]));}
+				  if(atoi(argv[2]) >= 1024){sprintf((char *)uartTxBuffer,"The motor speed is : %d\r\n",1023);}
+				  else if(atoi(argv[2]) <= 0){sprintf((char *)uartTxBuffer,"The motor speed is : %d\r\n",0);}
+				  else{sprintf((char *)uartTxBuffer,"The motor speed is : %d\r\n",atoi(argv[2]));}
 				  HAL_UART_Transmit(&huart2, uartTxBuffer, 64, HAL_MAX_DELAY);
 				  speed(atoi(argv[2]));
 			  }
@@ -229,10 +244,7 @@ int main(void)
 				  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			  }
 		  }
-		  else if(strcmp(argv[0],"get")==0)
-		  {
-			  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
-		  }
+		  // Si la commande n'existe pas
 		  else{
 			  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 		  }
@@ -489,7 +501,9 @@ void HAL_UART_RxCpltCallback (UART_HandleTypeDef * huart){
 }
 
 /**
-  * @brief Fonction qui démarre le moteur en générant les quatres PWM. Le moteur reste à l'arrêt.
+  * @brief Fonction qui démarre le moteur en générant les quatres PWM.
+  *
+  * Le moteur reste à l'arrêt.
   * @param None
   * @retval None
   */
@@ -516,7 +530,10 @@ void stopMotor(){
 
 /**
   * @brief Fonction qui contrôle la vitesse de rotation du moteur.
-  * @param alpha Nombre entier qui contrôle la vitesse. 0 est la vitesse maximum dans un sens de rotation. 1024 est la vitesse maximale dans l'autre sens de rotaion. 512 est la vitesse initiale : le moteur est à l'arrêt.
+  * @param alpha Nombre entier qui contrôle la vitesse.
+  * 	- alpha = 0 : vitesse maximum dans un sens de rotation.
+  * 	- alpha = 1024 : vitesse maximale dans l'autre sens de rotation.
+  * 	- alpha = 512 : vitesse initiale, le moteur est à l'arrêt.
   * @retval None
   */
 void speed(int alpha){
@@ -526,6 +543,15 @@ void speed(int alpha){
 	TIM1 -> CCR2 = 1024-alpha;
 }
 
+/**
+  * @brief Fonction qui permet d'initialiser la MCC.
+  *
+  * Cette fonction est à lancer avant toutes les autres.
+  * Elle permet de réinitialiser le système en activant la ligne ISO_RESET à l'état actif.
+  * Une fois réalisée, le système est prêt à être utilisé.
+  * @param None
+  * @retval None
+  */
 void init(){
 	  HAL_GPIO_WritePin(ISO_RESET_GPIO_Port, ISO_RESET_Pin, SET);
 	  HAL_Delay(10);

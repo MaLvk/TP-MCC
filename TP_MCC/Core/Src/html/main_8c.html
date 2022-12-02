@@ -121,11 +121,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a70af21c671abfcc773614a9a4f63d920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a> (void)</td></tr>
 <tr class="memdesc:a70af21c671abfcc773614a9a4f63d920"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Clock Configuration.  <a href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">More...</a><br /></td></tr>
 <tr class="separator:a70af21c671abfcc773614a9a4f63d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2858154e2009b0e6e616f313177762bc"><td class="memItemLeft" align="right" valign="top"><a id="a2858154e2009b0e6e616f313177762bc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (void)</td></tr>
-<tr class="separator:a2858154e2009b0e6e616f313177762bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a> ()</td></tr>
+<tr class="memdesc:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui permet d'initialiser la MCC.  <a href="main_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">More...</a><br /></td></tr>
+<tr class="separator:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38e4b9838f7dc595ffb571461204365b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a38e4b9838f7dc595ffb571461204365b">startMotor</a> ()</td></tr>
-<tr class="memdesc:a38e4b9838f7dc595ffb571461204365b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui démarre le moteur en générant les quatres PWM. Le moteur reste à l'arrêt.  <a href="main_8c.html#a38e4b9838f7dc595ffb571461204365b">More...</a><br /></td></tr>
+<tr class="memdesc:a38e4b9838f7dc595ffb571461204365b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui démarre le moteur en générant les quatres PWM.  <a href="main_8c.html#a38e4b9838f7dc595ffb571461204365b">More...</a><br /></td></tr>
 <tr class="separator:a38e4b9838f7dc595ffb571461204365b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac485965697295992f2599633a3f5126a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac485965697295992f2599633a3f5126a">stopMotor</a> ()</td></tr>
 <tr class="memdesc:ac485965697295992f2599633a3f5126a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui arrête le moteur en stoppant la génération de signaux PWM.  <a href="main_8c.html#ac485965697295992f2599633a3f5126a">More...</a><br /></td></tr>
@@ -155,10 +155,10 @@ TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>htim1</b
 UART_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>huart2</b></td></tr>
 <tr class="separator:aa9479c261d65eecedd3d9582f7f0f89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a966d2a4355220cea45d1606e814d7340"><td class="memItemLeft" align="right" valign="top"><a id="a966d2a4355220cea45d1606e814d7340"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>prompt</b> [] =&quot;user@Nucleo-STM32G747&gt;&gt;&quot;</td></tr>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>prompt</b> [] =&quot;user@Nucleo-STM32G474&gt;&gt;&quot;</td></tr>
 <tr class="separator:a966d2a4355220cea45d1606e814d7340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee56b7ebbc8213afa9eeb757f14d96b7"><td class="memItemLeft" align="right" valign="top"><a id="aee56b7ebbc8213afa9eeb757f14d96b7"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialisation</b> [] =&quot;Initialisation des moteurs\r\n&quot;</td></tr>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialisation</b> [] =&quot;Motor initialization\r\n&quot;</td></tr>
 <tr class="separator:aee56b7ebbc8213afa9eeb757f14d96b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a755cb53f91881bf4852a1765ffc09dd6"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>started</b> []</td></tr>
 <tr class="separator:a755cb53f91881bf4852a1765ffc09dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,6 +220,37 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uartTxBuffer</b> [
 
 </div>
 </div>
+<a id="a02fd73d861ef2e4aabb38c0c9ff82947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02fd73d861ef2e4aabb38c0c9ff82947">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui permet d'initialiser la MCC. </p>
+<p>Cette fonction est à lancer avant toutes les autres. Elle permet de réinitialiser le système en activant la ligne ISO_RESET à l'état actif. Une fois réalisée, le système est prêt à être utilisé. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -265,7 +296,12 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uartTxBuffer</b> [
 <p>Fonction qui contrôle la vitesse de rotation du moteur. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">alpha</td><td>Nombre entier qui contrôle la vitesse. 0 est la vitesse maximum dans un sens de rotation. 1024 est la vitesse maximale dans l'autre sens de rotaion. 512 est la vitesse initiale : le moteur est à l'arrêt. </td></tr>
+    <tr><td class="paramname">alpha</td><td>Nombre entier qui contrôle la vitesse.<ul>
+<li>alpha = 0 : vitesse maximum dans un sens de rotation.</li>
+<li>alpha = 1024 : vitesse maximale dans l'autre sens de rotation.</li>
+<li>alpha = 512 : vitesse initiale, le moteur est à l'arrêt. </li>
+</ul>
+</td></tr>
   </table>
   </dd>
 </dl>
@@ -293,8 +329,8 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uartTxBuffer</b> [
       </table>
 </div><div class="memdoc">
 
-<p>Fonction qui démarre le moteur en générant les quatres PWM. Le moteur reste à l'arrêt. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Fonction qui démarre le moteur en générant les quatres PWM. </p>
+<p>Le moteur reste à l'arrêt. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
   </table>
@@ -383,8 +419,14 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uartTxBuffer</b> [
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=<span class="stringliteral">&quot;\r\nYou can use the following functions :&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;\r\n pinout : To show the list of the pin.&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n init : To initialize the motor.&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;\r\n start : To start the motor.&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;\r\n stop : To stop the motor.&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n speed = alpha : To set the motor speed to alpha.&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n       - alpha = 0 : maximum speed in one direction of rotation.&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n       - alpha = 1024 : maximum speed in the other direction of rotation.&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n       - alpha = 512 : initial speed, the motor is stopped.&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n /!| Too great a difference in speed will cause the motor to stop.&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;\r\n&quot;</span></div>
 </div><!-- fragment -->
 </div>
@@ -401,13 +443,15 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uartTxBuffer</b> [
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=<span class="stringliteral">&quot;\r\nList of the pins :&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n PA5 : LED&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n PA3 : UART2_RX&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n PA2 : UART2_TX&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n PA8 : PWM CH1&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n PA9 : PWM CH2&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n PA11 : PWM CH1N&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n PA12 : PWM CH2N&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n*-------------------------------------------------------------------*&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n|20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 x  x|&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n|1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 x  x  x|&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n*-------------------------------------------------------------------*&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n 11 : Blue Phase Top -&gt; CH1 (PA8)&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n 12 : Yellow Phase Top -&gt; CH2 (PA9)&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n 29 : Blue Phase Bottom -&gt; CH1N (PA11)&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n 30 : Yellow Phase Bottom -&gt; CH2N (PA12)&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n 33 : Fault Reset Command -&gt; ISO_RESET (PC3)&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;\r\n&quot;</span></div>
 </div><!-- fragment -->
 </div>
@@ -425,7 +469,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uartTxBuffer</b> [
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">        <span class="stringliteral">&quot;\r\n*-----------------------------*&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;\r\n| Welcome on Nucleo-STM32G747 |&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\r\n| Welcome on Nucleo-STM32G474 |&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;\r\n*-----------------------------*&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;\r\n&quot;</span></div>
 </div><!-- fragment -->
