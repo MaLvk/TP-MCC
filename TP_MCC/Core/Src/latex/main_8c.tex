@@ -51,15 +51,12 @@ void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+
 \mbox{\Hypertarget{main_8c_a2858154e2009b0e6e616f313177762bc}\label{main_8c_a2858154e2009b0e6e616f313177762bc}} 
 void {\bfseries init} (void)
 \item 
-\mbox{\Hypertarget{main_8c_a43d995262ae29361c401c0544def59e9}\label{main_8c_a43d995262ae29361c401c0544def59e9}} 
-void {\bfseries start\+Motor} (void)
-\item 
-\mbox{\Hypertarget{main_8c_a7aebac9f4cf158f4f443d4c168ec3461}\label{main_8c_a7aebac9f4cf158f4f443d4c168ec3461}} 
-void {\bfseries stop\+Motor} (void)
-\item 
-\mbox{\Hypertarget{main_8c_ae29c1f2934cf7aaef1ea219b339be9f2}\label{main_8c_ae29c1f2934cf7aaef1ea219b339be9f2}} 
-void {\bfseries speed} (int)
-\item 
+void \mbox{\hyperlink{main_8c_a38e4b9838f7dc595ffb571461204365b}{start\+Motor}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui démarre le moteur en générant les quatres P\+WM. Le moteur reste à l\textquotesingle{}arrêt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ac485965697295992f2599633a3f5126a}{stop\+Motor}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui arrête le moteur en stoppant la génération de signaux P\+WM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a04913591bbe439dac886430ebb244959}{speed}} (int alpha)
+\begin{DoxyCompactList}\small\item\em Fonction qui contrôle la vitesse de rotation du moteur. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
 \begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{main_8c_ae494a9643f29b87d6d81e5264e60e57b}\label{main_8c_ae494a9643f29b87d6d81e5264e60e57b}} 
@@ -82,8 +79,8 @@ U\+A\+R\+T\+\_\+\+Handle\+Type\+Def {\bfseries huart2}
 \mbox{\Hypertarget{main_8c_a966d2a4355220cea45d1606e814d7340}\label{main_8c_a966d2a4355220cea45d1606e814d7340}} 
 const uint8\+\_\+t {\bfseries prompt} \mbox{[}$\,$\mbox{]} =\char`\"{}user@Nucleo-\/S\+T\+M32\+G747$>$$>$\char`\"{}
 \item 
-\mbox{\Hypertarget{main_8c_a15554c88e0c133409ebf88402a991025}\label{main_8c_a15554c88e0c133409ebf88402a991025}} 
-const uint8\+\_\+t {\bfseries initiatlisation} \mbox{[}$\,$\mbox{]} =\char`\"{}Initialisation des moteurs\textbackslash{}r\textbackslash{}n\char`\"{}
+\mbox{\Hypertarget{main_8c_aee56b7ebbc8213afa9eeb757f14d96b7}\label{main_8c_aee56b7ebbc8213afa9eeb757f14d96b7}} 
+const uint8\+\_\+t {\bfseries initialisation} \mbox{[}$\,$\mbox{]} =\char`\"{}Initialisation des moteurs\textbackslash{}r\textbackslash{}n\char`\"{}
 \item 
 const uint8\+\_\+t {\bfseries started} \mbox{[}$\,$\mbox{]}
 \item 
@@ -153,6 +150,66 @@ The application entry point.
 
 \begin{DoxyRetVals}{Return values}
 {\em int} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a04913591bbe439dac886430ebb244959}\label{main_8c_a04913591bbe439dac886430ebb244959}} 
+\index{main.c@{main.c}!speed@{speed}}
+\index{speed@{speed}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{speed()}{speed()}}
+{\footnotesize\ttfamily void speed (\begin{DoxyParamCaption}\item[{int}]{alpha }\end{DoxyParamCaption})}
+
+
+
+Fonction qui contrôle la vitesse de rotation du moteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alpha} & Nombre entier qui contrôle la vitesse. 0 est la vitesse maximum dans un sens de rotation. 1024 est la vitesse maximale dans l\textquotesingle{}autre sens de rotaion. 512 est la vitesse initiale \+: le moteur est à l\textquotesingle{}arrêt. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a38e4b9838f7dc595ffb571461204365b}\label{main_8c_a38e4b9838f7dc595ffb571461204365b}} 
+\index{main.c@{main.c}!startMotor@{startMotor}}
+\index{startMotor@{startMotor}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{startMotor()}{startMotor()}}
+{\footnotesize\ttfamily void start\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui démarre le moteur en générant les quatres P\+WM. Le moteur reste à l\textquotesingle{}arrêt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_ac485965697295992f2599633a3f5126a}\label{main_8c_ac485965697295992f2599633a3f5126a}} 
+\index{main.c@{main.c}!stopMotor@{stopMotor}}
+\index{stopMotor@{stopMotor}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{stopMotor()}{stopMotor()}}
+{\footnotesize\ttfamily void stop\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui arrête le moteur en stoppant la génération de signaux P\+WM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
 \hline
 \end{DoxyRetVals}
 \mbox{\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920}} 

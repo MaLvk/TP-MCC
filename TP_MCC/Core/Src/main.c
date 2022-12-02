@@ -59,7 +59,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 const uint8_t prompt[]="user@Nucleo-STM32G747>>";
-const uint8_t initiatlisation[]="Initialisation des moteurs\r\n";
+const uint8_t initialisation[]="Initialisation des moteurs\r\n";
 const uint8_t started[]=
 		"\r\n*-----------------------------*"
 		"\r\n| Welcome on Nucleo-STM32G747 |"
@@ -204,7 +204,7 @@ int main(void)
 			  stopMotor();
 		  }
 		  else if(strcmp(argv[0],"init")==0){
-			  HAL_UART_Transmit(&huart2, initiatlisation, sizeof(initiatlisation), HAL_MAX_DELAY);
+			  HAL_UART_Transmit(&huart2, initialisation, sizeof(initialisation), HAL_MAX_DELAY);
 			  init();
 		  }
 		  else if(strcmp(argv[0],"set")==0){
@@ -488,6 +488,11 @@ void HAL_UART_RxCpltCallback (UART_HandleTypeDef * huart){
 	HAL_UART_Receive_IT(&huart2, uartRxBuffer, UART_RX_BUFFER_SIZE);
 }
 
+/**
+  * @brief Fonction qui démarre le moteur en générant les quatres PWM. Le moteur reste à l'arrêt.
+  * @param None
+  * @retval None
+  */
 void startMotor(){
 	  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
@@ -496,6 +501,11 @@ void startMotor(){
 	  speed(512);
 }
 
+/**
+  * @brief Fonction qui arrête le moteur en stoppant la génération de signaux PWM.
+  * @param None
+  * @retval None
+  */
 void stopMotor(){
 	  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
 	  HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1);
@@ -504,6 +514,11 @@ void stopMotor(){
 	  HAL_Delay(5);
 }
 
+/**
+  * @brief Fonction qui contrôle la vitesse de rotation du moteur.
+  * @param alpha Nombre entier qui contrôle la vitesse. 0 est la vitesse maximum dans un sens de rotation. 1024 est la vitesse maximale dans l'autre sens de rotaion. 512 est la vitesse initiale : le moteur est à l'arrêt.
+  * @retval None
+  */
 void speed(int alpha){
 	if(alpha >= 1024){alpha=1023;}
 	if(alpha <= 0){alpha = 0;}

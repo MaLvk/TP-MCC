@@ -124,15 +124,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a2858154e2009b0e6e616f313177762bc"><td class="memItemLeft" align="right" valign="top"><a id="a2858154e2009b0e6e616f313177762bc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (void)</td></tr>
 <tr class="separator:a2858154e2009b0e6e616f313177762bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43d995262ae29361c401c0544def59e9"><td class="memItemLeft" align="right" valign="top"><a id="a43d995262ae29361c401c0544def59e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>startMotor</b> (void)</td></tr>
-<tr class="separator:a43d995262ae29361c401c0544def59e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7aebac9f4cf158f4f443d4c168ec3461"><td class="memItemLeft" align="right" valign="top"><a id="a7aebac9f4cf158f4f443d4c168ec3461"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>stopMotor</b> (void)</td></tr>
-<tr class="separator:a7aebac9f4cf158f4f443d4c168ec3461"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae29c1f2934cf7aaef1ea219b339be9f2"><td class="memItemLeft" align="right" valign="top"><a id="ae29c1f2934cf7aaef1ea219b339be9f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b> (int)</td></tr>
-<tr class="separator:ae29c1f2934cf7aaef1ea219b339be9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e4b9838f7dc595ffb571461204365b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a38e4b9838f7dc595ffb571461204365b">startMotor</a> ()</td></tr>
+<tr class="memdesc:a38e4b9838f7dc595ffb571461204365b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui démarre le moteur en générant les quatres PWM. Le moteur reste à l'arrêt.  <a href="main_8c.html#a38e4b9838f7dc595ffb571461204365b">More...</a><br /></td></tr>
+<tr class="separator:a38e4b9838f7dc595ffb571461204365b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac485965697295992f2599633a3f5126a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac485965697295992f2599633a3f5126a">stopMotor</a> ()</td></tr>
+<tr class="memdesc:ac485965697295992f2599633a3f5126a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui arrête le moteur en stoppant la génération de signaux PWM.  <a href="main_8c.html#ac485965697295992f2599633a3f5126a">More...</a><br /></td></tr>
+<tr class="separator:ac485965697295992f2599633a3f5126a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04913591bbe439dac886430ebb244959"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a04913591bbe439dac886430ebb244959">speed</a> (int alpha)</td></tr>
+<tr class="memdesc:a04913591bbe439dac886430ebb244959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui contrôle la vitesse de rotation du moteur.  <a href="main_8c.html#a04913591bbe439dac886430ebb244959">More...</a><br /></td></tr>
+<tr class="separator:a04913591bbe439dac886430ebb244959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application entry point.  <a href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,9 +157,9 @@ UART_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>huart2<
 <tr class="memitem:a966d2a4355220cea45d1606e814d7340"><td class="memItemLeft" align="right" valign="top"><a id="a966d2a4355220cea45d1606e814d7340"></a>
 const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>prompt</b> [] =&quot;user@Nucleo-STM32G747&gt;&gt;&quot;</td></tr>
 <tr class="separator:a966d2a4355220cea45d1606e814d7340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15554c88e0c133409ebf88402a991025"><td class="memItemLeft" align="right" valign="top"><a id="a15554c88e0c133409ebf88402a991025"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>initiatlisation</b> [] =&quot;Initialisation des moteurs\r\n&quot;</td></tr>
-<tr class="separator:a15554c88e0c133409ebf88402a991025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee56b7ebbc8213afa9eeb757f14d96b7"><td class="memItemLeft" align="right" valign="top"><a id="aee56b7ebbc8213afa9eeb757f14d96b7"></a>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialisation</b> [] =&quot;Initialisation des moteurs\r\n&quot;</td></tr>
+<tr class="separator:aee56b7ebbc8213afa9eeb757f14d96b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a755cb53f91881bf4852a1765ffc09dd6"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>started</b> []</td></tr>
 <tr class="separator:a755cb53f91881bf4852a1765ffc09dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf1738871b36e02674442e11e9b0ec62"><td class="memItemLeft" align="right" valign="top"><a id="adf1738871b36e02674442e11e9b0ec62"></a>
@@ -240,6 +240,100 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uartTxBuffer</b> [
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">int</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a04913591bbe439dac886430ebb244959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04913591bbe439dac886430ebb244959">&#9670;&nbsp;</a></span>speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void speed </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>alpha</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui contrôle la vitesse de rotation du moteur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>Nombre entier qui contrôle la vitesse. 0 est la vitesse maximum dans un sens de rotation. 1024 est la vitesse maximale dans l'autre sens de rotaion. 512 est la vitesse initiale : le moteur est à l'arrêt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a38e4b9838f7dc595ffb571461204365b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e4b9838f7dc595ffb571461204365b">&#9670;&nbsp;</a></span>startMotor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void startMotor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui démarre le moteur en générant les quatres PWM. Le moteur reste à l'arrêt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac485965697295992f2599633a3f5126a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac485965697295992f2599633a3f5126a">&#9670;&nbsp;</a></span>stopMotor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stopMotor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui arrête le moteur en stoppant la génération de signaux PWM. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
