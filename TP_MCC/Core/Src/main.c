@@ -59,6 +59,7 @@ DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart2;
 
@@ -92,6 +93,9 @@ const uint8_t pinout[]="\r\nList of the pins :"
 		"\r\n 31 : Red Phase Bottom -> CH1N (PA11)"
 		"\r\n 30 : Yellow Phase Bottom -> CH2N (PA12)"
 		"\r\n 33 : Fault Reset Command -> ISO_RESET (PC3)"
+		"\r\n 16 : Yellow Phase Hall Current -> ADC (PC2)"
+		"\r\n B  : Encodeur -> TIM3_CH2 (PA4)"
+		"\r\n A  : Encodeur -> TIM3_CH1 (PA6)"
 		"\r\n";
 const uint8_t powerOn[]="Power ON\r\n";			// Fait demarrer le moteur
 const uint8_t powerOff[]="Power OFF\r\n";		// Fait arrêter le moteur
@@ -103,6 +107,7 @@ uint32_t adcBuffer[ADC_BUFFER_SIZE];
 int adcDmaFlag;
 int adcValue;
 int timFlag;
+int encodeurFlag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -113,6 +118,7 @@ static void MX_TIM1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 void init(void);
 void startMotor(void);
@@ -163,6 +169,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_ADC1_Init();
   MX_TIM2_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   memset(argv,0,MAX_ARGS*sizeof(char*));
   memset(cmdBuffer,0,CMD_BUFFER_SIZE*sizeof(char));
@@ -180,6 +187,8 @@ int main(void)
 
   HAL_TIM_Base_Start_IT(&htim1);
   HAL_TIM_Base_Start_IT(&htim2);
+
+  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -256,12 +265,16 @@ int main(void)
 			  if(strcmp(argv[1],"ADC")==0){
 				  timFlag = 1;
 			  }
+			  else if(strcmp(argv[1],"pos")==0){
+				  encodeurFlag = 1;
+			  }
 			  else{
 				  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			  }
 		  }
 		  else if(strcmp(argv[0],"quit")==0){
 			  timFlag = 0;
+			  encodeurFlag = 0;
 		  }
 		  // Choisir la valeur de la vitesse de la façon "speed = XXXX" avec une valeur bornée entre 0 et 1023.
 		  else if(strcmp(argv[0],"speed")==0){
@@ -536,6 +549,55 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_Encoder_InitTypeDef sConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 0;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 65535;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 10;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 10;
+  if (HAL_TIM_Encoder_Init(&htim3, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -742,6 +804,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		  adcDmaFlag = 0;
 		}
 	  }
+
+	  if (encodeurFlag){
+		  sprintf((char *)uartTxBuffer, "%ld\r\n",(TIM3->CNT));
+		  HAL_UART_Transmit(&huart2, uartTxBuffer, strlen((char *)uartTxBuffer)*sizeof(char), HAL_MAX_DELAY);
+	  	}
 
 }
 /* USER CODE END 4 */
