@@ -102,6 +102,7 @@ uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
 uint32_t adcBuffer[ADC_BUFFER_SIZE];
 int adcDmaFlag;
 int adcValue;
+int timFlag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -178,6 +179,7 @@ int main(void)
   HAL_TIM_Base_Start(&htim1);
 
   HAL_TIM_Base_Start_IT(&htim1);
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -252,15 +254,14 @@ int main(void)
 		  // Afficher les valeurs de l'ADC
 		  else if(strcmp(argv[0],"get")==0){
 			  if(strcmp(argv[1],"ADC")==0){
-				  if(adcDmaFlag){
-				  		  sprintf((char *)uartTxBuffer, "%1.5f\r\n",((float)adcBuffer[0])*3.3/4096);
-				  		  HAL_UART_Transmit(&huart2, uartTxBuffer, strlen((char *)uartTxBuffer)*sizeof(char), HAL_MAX_DELAY);
-				  		  adcDmaFlag = 0;
-				  	  }
+				  timFlag = 1;
 			  }
 			  else{
 				  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			  }
+		  }
+		  else if(strcmp(argv[0],"quit")==0){
+			  timFlag = 0;
 		  }
 		  // Choisir la valeur de la vitesse de la façon "speed = XXXX" avec une valeur bornée entre 0 et 1023.
 		  else if(strcmp(argv[0],"speed")==0){
@@ -730,6 +731,18 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
   adcDmaFlag = 1;
   adcValue = HAL_ADC_GetValue(&hadc1);
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	  if (timFlag){
+		if(adcDmaFlag){
+		  sprintf((char *)uartTxBuffer, "%1.5f\r\n",((((float)adcBuffer[0])*3.3/4096)-2.53)*12);
+		  HAL_UART_Transmit(&huart2, uartTxBuffer, strlen((char *)uartTxBuffer)*sizeof(char), HAL_MAX_DELAY);
+		  adcDmaFlag = 0;
+		}
+	  }
+
 }
 /* USER CODE END 4 */
 
