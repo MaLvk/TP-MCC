@@ -46,6 +46,11 @@
 
 #define MAX_CCR_VALUE 1023
 #define ADC_BUFFER_SIZE 64
+
+#define ENCODER_INIT 65534/2
+#define KP_CURRENT 0.29
+#define KI_CURRENT 1124.88
+#define KD_CURRENT 1.037
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -60,6 +65,7 @@ DMA_HandleTypeDef hdma_adc1;
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart2;
 
@@ -108,6 +114,7 @@ int adcDmaFlag;
 int adcValue;
 int timFlag;
 int encodeurFlag;
+int encoder_speed;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -119,6 +126,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
 void init(void);
 void startMotor(void);
@@ -170,6 +178,7 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   memset(argv,0,MAX_ARGS*sizeof(char*));
   memset(cmdBuffer,0,CMD_BUFFER_SIZE*sizeof(char));
@@ -189,6 +198,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
 
   HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+  HAL_TIM_Base_Start_IT(&htim4);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -598,6 +608,51 @@ static void MX_TIM3_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 20000-1;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 799;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -797,18 +852,25 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	  if (timFlag){
-		if(adcDmaFlag){
-		  sprintf((char *)uartTxBuffer, "%1.5f\r\n",((((float)adcBuffer[0])*3.3/4096)-2.53)*12);
-		  HAL_UART_Transmit(&huart2, uartTxBuffer, strlen((char *)uartTxBuffer)*sizeof(char), HAL_MAX_DELAY);
-		  adcDmaFlag = 0;
+	if(htim == &htim2){
+		if (timFlag){
+			if(adcDmaFlag){
+			  sprintf((char *)uartTxBuffer, "%1.5f\r\n",((((float)adcBuffer[0])*3.3/4096)-2.53)*12);
+			  HAL_UART_Transmit(&huart2, uartTxBuffer, strlen((char *)uartTxBuffer)*sizeof(char), HAL_MAX_DELAY);
+			  adcDmaFlag = 0;
+			}
 		}
-	  }
 
-	  if (encodeurFlag){
-		  sprintf((char *)uartTxBuffer, "%ld\r\n",(TIM3->CNT));
-		  HAL_UART_Transmit(&huart2, uartTxBuffer, strlen((char *)uartTxBuffer)*sizeof(char), HAL_MAX_DELAY);
-	  	}
+		if (encodeurFlag){
+			sprintf((char *)uartTxBuffer, "%1.5f rad/s\r\n",(float)((encoder_speed * 10)*0.0016));
+			HAL_UART_Transmit(&huart2, uartTxBuffer, strlen((char *)uartTxBuffer)*sizeof(char), HAL_MAX_DELAY);
+		}
+	}
+
+	  if(htim == &htim4){
+		  encoder_speed = TIM3->CNT - ENCODER_INIT;
+		  TIM3->CNT = ENCODER_INIT;
+	  }
 
 }
 /* USER CODE END 4 */
