@@ -31,6 +31,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "MCC.h"
+#include "PID.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +46,11 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#define KP_CURRENT 0.05
+#define KI_CURRENT 0.1
+#define TIM1_PERIOD 0.000064
+#define ALPHA_OUT_MAX_VALUE 0.9
+#define ALPHA_OUT_MIN_VALUE 0
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -55,6 +60,10 @@ extern uint8_t uartRxReceived;
 extern uint8_t uartRxBuffer[UART_RX_BUFFER_SIZE];
 extern uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
 extern uint32_t adcBuffer[ADC_BUFFER_SIZE];
+extern int it_tim1;
+
+PIDController asservCurrent;
+float consigneCurrent = 0.0f;
 
 extern int printAdcFlag;
 /* USER CODE END PV */
@@ -114,12 +123,29 @@ int main(void)
   HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
   HAL_ADC_Start_DMA(&hadc1, adcBuffer, 1);
 
-  HAL_TIM_Base_Start(&htim1);
   HAL_TIM_Base_Start_IT(&htim1);
   HAL_TIM_Base_Start_IT(&htim2);
 
   HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
   HAL_TIM_Base_Start_IT(&htim4);
+
+
+  //Initialisation asserv en courant
+  PIDController_Init(&asservCurrent);
+
+
+  asservCurrent.Kp = KP_CURRENT;
+  asservCurrent.Ki = KI_CURRENT;
+
+  asservCurrent.T = TIM1_PERIOD;
+
+  asservCurrent.integrator = 0.5;
+
+  asservCurrent.limMaxInt = ALPHA_OUT_MAX_VALUE;
+  asservCurrent.limMinInt = ALPHA_OUT_MIN_VALUE;
+
+  asservCurrent.limMax = ALPHA_OUT_MAX_VALUE;
+  asservCurrent.limMin = ALPHA_OUT_MIN_VALUE;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -132,6 +158,14 @@ int main(void)
 				shellPrompt();
 			}
 			uartRxReceived = 0;
+		}
+
+		if(it_tim1){
+			float measurement = -((((float)adcBuffer[0])*3.3/4096)-2.53)*12;
+			PIDController_Update(&asservCurrent, consigneCurrent, measurement);
+
+			speed((int)(asservCurrent.out*1024));
+			it_tim1 = 0;
 		}
 
     /* USER CODE END WHILE */

@@ -34,6 +34,7 @@
 int printAdcFlag = 0;
 int encoderFlag = 0;
 int encoderSpeed;
+int it_tim1 = 0;
 
 extern int adcFlag;
 extern uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
@@ -59,6 +60,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	  if(htim == &htim4){
 		  encoderSpeed = TIM3->CNT - ENCODER_INIT;
 		  TIM3->CNT = ENCODER_INIT;
+	  }
+
+	  if(htim == &htim1){
+		  it_tim1 = 1;
 	  }
 
 }

@@ -69,6 +69,7 @@ extern uint8_t stringSize;
 extern int adcFlag;
 extern int printAdcFlag;
 extern int encoderFlag;
+extern float consigneCurrent;
 
 
 /**
@@ -200,6 +201,17 @@ void shellExec(void){
 	  else{
 		  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 	  }
+	}
+
+  	else if(strcmp(argv[0],"current")==0){
+  		  if(strcmp(argv[1],"=")==0){
+  			  sprintf((char *)uartTxBuffer,"The motor speed is : %1.2f\r\n",(float)atof(argv[2]));
+  			  HAL_UART_Transmit(&huart2, uartTxBuffer, 64, HAL_MAX_DELAY);
+  			  consigneCurrent = (float)atof(argv[2]);
+  	  	  }
+  		  else{
+  			  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
+  		  }
 	}
 	else{
 		shellCmdNotFound();
