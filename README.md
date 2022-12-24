@@ -1,6 +1,6 @@
 # TP de Systèmes d'Acquisition et de Commande
 
-##### VAN KETS Maëlle   HERAULT Félix
+#### VAN KETS Maëlle   HERAULT Félix
 
 ### Objectif Du TP:
 
