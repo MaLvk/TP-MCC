@@ -9,3 +9,19 @@
 - Faire l'acquisition des différents capteurs
 - Réaliser l'asservissement, en temps réel, en courant et en vitesse.
 
+
+## Shell de commande du hacheur
+
+
+## Commande des 4 transistors du hacheur en commande complémentaire décalé
+
+
+
+## Acquisition des differents capteurs
+
+
+
+## Asservissement en courant et en vitesse 
+
+
+
