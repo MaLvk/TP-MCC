@@ -14,8 +14,8 @@
 
 Le shell nous permet d'appeler differentes commandes qui permettent de choisir les differents paramètres à appliquer à la MCC.
 
-Les differentes commandes sont: 
-    -- "start"  : démarre la PWM à envoyer au moteur.
+Les differentes commandes sont:
+- "start"  : démarre la PWM à envoyer au moteur.
 
 ## Commande des 4 transistors du hacheur en commande complémentaire décalé
 
