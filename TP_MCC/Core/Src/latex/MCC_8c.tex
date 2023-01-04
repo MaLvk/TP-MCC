@@ -1,0 +1,125 @@
+\hypertarget{MCC_8c}{}\doxysection{M\+C\+C.\+c File Reference}
+\label{MCC_8c}\index{MCC.c@{MCC.c}}
+
+
+M\+CC program body.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}M\+C\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+Include dependency graph for M\+C\+C.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{MCC_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{MCC_8c_a38e4b9838f7dc595ffb571461204365b}{start\+Motor}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui démarre le moteur en générant les quatres P\+WM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{MCC_8c_ac485965697295992f2599633a3f5126a}{stop\+Motor}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui arrête le moteur en stoppant la génération de signaux P\+WM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{MCC_8c_a04913591bbe439dac886430ebb244959}{speed}} (int alpha)
+\begin{DoxyCompactList}\small\item\em Fonction qui contrôle la vitesse de rotation du moteur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{MCC_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser la M\+CC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+M\+CC program body. 
+
+Author\+: Maelle and Felix 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{MCC_8c_a02fd73d861ef2e4aabb38c0c9ff82947}\label{MCC_8c_a02fd73d861ef2e4aabb38c0c9ff82947}} 
+\index{MCC.c@{MCC.c}!init@{init}}
+\index{init@{init}!MCC.c@{MCC.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser la M\+CC. 
+
+Cette fonction est à lancer avant toutes les autres. Elle permet de réinitialiser le système en activant la ligne I\+S\+O\+\_\+\+R\+E\+S\+ET à l\textquotesingle{}état actif. Une fois réalisée, le système est prêt à être utilisé. 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{MCC_8c_a04913591bbe439dac886430ebb244959}\label{MCC_8c_a04913591bbe439dac886430ebb244959}} 
+\index{MCC.c@{MCC.c}!speed@{speed}}
+\index{speed@{speed}!MCC.c@{MCC.c}}
+\doxysubsubsection{\texorpdfstring{speed()}{speed()}}
+{\footnotesize\ttfamily void speed (\begin{DoxyParamCaption}\item[{int}]{alpha }\end{DoxyParamCaption})}
+
+
+
+Fonction qui contrôle la vitesse de rotation du moteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alpha} & Nombre entier qui contrôle la vitesse.
+\begin{DoxyItemize}
+\item alpha = 0 \+: vitesse maximum dans un sens de rotation.
+\item alpha = 1024 \+: vitesse maximale dans l\textquotesingle{}autre sens de rotation.
+\item alpha = 512 \+: vitesse initiale, le moteur est à l\textquotesingle{}arrêt. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{MCC_8c_a38e4b9838f7dc595ffb571461204365b}\label{MCC_8c_a38e4b9838f7dc595ffb571461204365b}} 
+\index{MCC.c@{MCC.c}!startMotor@{startMotor}}
+\index{startMotor@{startMotor}!MCC.c@{MCC.c}}
+\doxysubsubsection{\texorpdfstring{startMotor()}{startMotor()}}
+{\footnotesize\ttfamily void start\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui démarre le moteur en générant les quatres P\+WM. 
+
+Le moteur reste à l\textquotesingle{}arrêt. 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{MCC_8c_ac485965697295992f2599633a3f5126a}\label{MCC_8c_ac485965697295992f2599633a3f5126a}} 
+\index{MCC.c@{MCC.c}!stopMotor@{stopMotor}}
+\index{stopMotor@{stopMotor}!MCC.c@{MCC.c}}
+\doxysubsubsection{\texorpdfstring{stopMotor()}{stopMotor()}}
+{\footnotesize\ttfamily void stop\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui arrête le moteur en stoppant la génération de signaux P\+WM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

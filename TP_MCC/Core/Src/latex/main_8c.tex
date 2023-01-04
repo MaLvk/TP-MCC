@@ -6,107 +6,78 @@
 
 
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dma.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}shell.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-Include dependency graph for main.\+c\+:\nopagebreak
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}M\+C\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}P\+I\+D.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=324pt]{main_8c__incl}
+\includegraphics[width=350pt]{main_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{main_8c_a05f5d709605c6317c97e4974bec3402a}\label{main_8c_a05f5d709605c6317c97e4974bec3402a}} 
-\#define {\bfseries U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~64
+\mbox{\Hypertarget{main_8c_a456eade8fe226c14740c2bb838c8c757}\label{main_8c_a456eade8fe226c14740c2bb838c8c757}} 
+\#define {\bfseries K\+P\+\_\+\+C\+U\+R\+R\+E\+NT}~0.\+05
 \item 
-\mbox{\Hypertarget{main_8c_a5bdd6772c246436bb14377095de79b31}\label{main_8c_a5bdd6772c246436bb14377095de79b31}} 
-\#define {\bfseries U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~1
+\mbox{\Hypertarget{main_8c_ab8b9256bb048de46dc08bb5844fe1c2e}\label{main_8c_ab8b9256bb048de46dc08bb5844fe1c2e}} 
+\#define {\bfseries K\+I\+\_\+\+C\+U\+R\+R\+E\+NT}~0.\+1
 \item 
-\mbox{\Hypertarget{main_8c_a8a0465f8e8bbe71e4d6e8011e975bf75}\label{main_8c_a8a0465f8e8bbe71e4d6e8011e975bf75}} 
-\#define {\bfseries C\+M\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~64
+\mbox{\Hypertarget{main_8c_a29aa8fe9e87468e3f2f156296c8bd8f9}\label{main_8c_a29aa8fe9e87468e3f2f156296c8bd8f9}} 
+\#define {\bfseries T\+I\+M1\+\_\+\+P\+E\+R\+I\+OD}~0.\+000064
 \item 
-\mbox{\Hypertarget{main_8c_a29b7451465deac204c5f7cb1f9c6e1fc}\label{main_8c_a29b7451465deac204c5f7cb1f9c6e1fc}} 
-\#define {\bfseries M\+A\+X\+\_\+\+A\+R\+GS}~9
+\mbox{\Hypertarget{main_8c_a653946b99307b6d66910279667d15c5a}\label{main_8c_a653946b99307b6d66910279667d15c5a}} 
+\#define {\bfseries A\+L\+P\+H\+A\+\_\+\+O\+U\+T\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}~0.\+9
 \item 
-\mbox{\Hypertarget{main_8c_aca3b498f5936dbe4f3076a47c3e1810d}\label{main_8c_aca3b498f5936dbe4f3076a47c3e1810d}} 
-\#define {\bfseries A\+S\+C\+I\+I\+\_\+\+LF}~0x0A
-\item 
-\mbox{\Hypertarget{main_8c_a089ed4925403ab02a05e603967c74579}\label{main_8c_a089ed4925403ab02a05e603967c74579}} 
-\#define {\bfseries A\+S\+C\+I\+I\+\_\+\+CR}~0x0D
-\item 
-\mbox{\Hypertarget{main_8c_a3bb28e223b7c203113dc8c0387d43b36}\label{main_8c_a3bb28e223b7c203113dc8c0387d43b36}} 
-\#define {\bfseries A\+S\+C\+I\+I\+\_\+\+D\+EL}~0x7F
-\item 
-\mbox{\Hypertarget{main_8c_a072f3fb860525cbad6f03f5024f93b6e}\label{main_8c_a072f3fb860525cbad6f03f5024f93b6e}} 
-\#define {\bfseries M\+A\+X\+\_\+\+C\+C\+R\+\_\+\+V\+A\+L\+UE}~1023
+\mbox{\Hypertarget{main_8c_aec8181c97fd103824e5ce54a52e40346}\label{main_8c_aec8181c97fd103824e5ce54a52e40346}} 
+\#define {\bfseries A\+L\+P\+H\+A\+\_\+\+O\+U\+T\+\_\+\+M\+I\+N\+\_\+\+V\+A\+L\+UE}~0
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
 \begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
-\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser la M\+CC. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8c_a38e4b9838f7dc595ffb571461204365b}{start\+Motor}} ()
-\begin{DoxyCompactList}\small\item\em Fonction qui démarre le moteur en générant les quatres P\+WM. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8c_ac485965697295992f2599633a3f5126a}{stop\+Motor}} ()
-\begin{DoxyCompactList}\small\item\em Fonction qui arrête le moteur en stoppant la génération de signaux P\+WM. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8c_a04913591bbe439dac886430ebb244959}{speed}} (int alpha)
-\begin{DoxyCompactList}\small\item\em Fonction qui contrôle la vitesse de rotation du moteur. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
 \begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_ae494a9643f29b87d6d81e5264e60e57b}\label{main_8c_ae494a9643f29b87d6d81e5264e60e57b}} 
-void {\bfseries H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback} (U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$huart)
-\item 
-\mbox{\Hypertarget{main_8c_a0cd91fd3a9608559c2a87a8ba6cba55f}\label{main_8c_a0cd91fd3a9608559c2a87a8ba6cba55f}} 
-void {\bfseries H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback} (uint16\+\_\+t G\+P\+I\+O\+\_\+\+Pin)
-\item 
 void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
 \begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{main_8c_a25fc663547539bc49fecc0011bd76ab5}\label{main_8c_a25fc663547539bc49fecc0011bd76ab5}} 
-T\+I\+M\+\_\+\+Handle\+Type\+Def {\bfseries htim1}
-\item 
-\mbox{\Hypertarget{main_8c_aa9479c261d65eecedd3d9582f7f0f89c}\label{main_8c_aa9479c261d65eecedd3d9582f7f0f89c}} 
-U\+A\+R\+T\+\_\+\+Handle\+Type\+Def {\bfseries huart2}
-\item 
-\mbox{\Hypertarget{main_8c_a966d2a4355220cea45d1606e814d7340}\label{main_8c_a966d2a4355220cea45d1606e814d7340}} 
-const uint8\+\_\+t {\bfseries prompt} \mbox{[}$\,$\mbox{]} =\char`\"{}user@Nucleo-\/S\+T\+M32\+G474$>$$>$\char`\"{}
-\item 
-\mbox{\Hypertarget{main_8c_aee56b7ebbc8213afa9eeb757f14d96b7}\label{main_8c_aee56b7ebbc8213afa9eeb757f14d96b7}} 
-const uint8\+\_\+t {\bfseries initialisation} \mbox{[}$\,$\mbox{]} =\char`\"{}Motor initialization\textbackslash{}r\textbackslash{}n\char`\"{}
-\item 
-const uint8\+\_\+t {\bfseries started} \mbox{[}$\,$\mbox{]}
-\item 
-\mbox{\Hypertarget{main_8c_adf1738871b36e02674442e11e9b0ec62}\label{main_8c_adf1738871b36e02674442e11e9b0ec62}} 
-const uint8\+\_\+t {\bfseries newline} \mbox{[}$\,$\mbox{]} =\char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
-\item 
-const uint8\+\_\+t {\bfseries help} \mbox{[}$\,$\mbox{]}
-\item 
-const uint8\+\_\+t {\bfseries pinout} \mbox{[}$\,$\mbox{]}
-\item 
-\mbox{\Hypertarget{main_8c_aaf2189933bda013fb3c72e886dc5a3d2}\label{main_8c_aaf2189933bda013fb3c72e886dc5a3d2}} 
-const uint8\+\_\+t {\bfseries power\+On} \mbox{[}$\,$\mbox{]} =\char`\"{}Power O\+N\textbackslash{}r\textbackslash{}n\char`\"{}
-\item 
-\mbox{\Hypertarget{main_8c_aeb39f657e7d4109c7d352e6ad376228a}\label{main_8c_aeb39f657e7d4109c7d352e6ad376228a}} 
-const uint8\+\_\+t {\bfseries power\+Off} \mbox{[}$\,$\mbox{]} =\char`\"{}Power O\+F\+F\textbackslash{}r\textbackslash{}n\char`\"{}
-\item 
-\mbox{\Hypertarget{main_8c_afffb9f0c7259f40748797ec408c8becb}\label{main_8c_afffb9f0c7259f40748797ec408c8becb}} 
-const uint8\+\_\+t {\bfseries cmd\+Not\+Found} \mbox{[}$\,$\mbox{]} =\char`\"{}Command not found\textbackslash{}r\textbackslash{}n\char`\"{}
-\item 
-\mbox{\Hypertarget{main_8c_a9d8a518124b90c249458a5b30ab36c52}\label{main_8c_a9d8a518124b90c249458a5b30ab36c52}} 
-uint32\+\_\+t {\bfseries uart\+Rx\+Received}
+\mbox{\Hypertarget{main_8c_a9f01ffb72325e6328a2239d6de7f4abc}\label{main_8c_a9f01ffb72325e6328a2239d6de7f4abc}} 
+uint8\+\_\+t {\bfseries uart\+Rx\+Received}
 \item 
 \mbox{\Hypertarget{main_8c_a2542ac6d4440b9e1c4a6435c55c79df3}\label{main_8c_a2542ac6d4440b9e1c4a6435c55c79df3}} 
 uint8\+\_\+t {\bfseries uart\+Rx\+Buffer} \mbox{[}U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]}
 \item 
 \mbox{\Hypertarget{main_8c_a3f98e2db2fa0d8f0cfd87b887576207f}\label{main_8c_a3f98e2db2fa0d8f0cfd87b887576207f}} 
 uint8\+\_\+t {\bfseries uart\+Tx\+Buffer} \mbox{[}U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_ab1975f5a73dd24f369409d94e4cbcc76}\label{main_8c_ab1975f5a73dd24f369409d94e4cbcc76}} 
+uint32\+\_\+t {\bfseries adc\+Buffer} \mbox{[}A\+D\+C\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a7b677f17bc4c2765ef4802de33751bc1}\label{main_8c_a7b677f17bc4c2765ef4802de33751bc1}} 
+int {\bfseries it\+\_\+tim1}
+\item 
+\mbox{\Hypertarget{main_8c_a50289c10ee25fa45782acad46220672b}\label{main_8c_a50289c10ee25fa45782acad46220672b}} 
+\mbox{\hyperlink{structPIDController}{P\+I\+D\+Controller}} {\bfseries asserv\+Current}
+\item 
+\mbox{\Hypertarget{main_8c_ad34f0ecb4c0cba32809e02ddd57ac2cf}\label{main_8c_ad34f0ecb4c0cba32809e02ddd57ac2cf}} 
+float {\bfseries consigne\+Current} = 0.\+0f
+\item 
+\mbox{\Hypertarget{main_8c_ad90c800324dba69aaa8661663c8c2973}\label{main_8c_ad90c800324dba69aaa8661663c8c2973}} 
+int {\bfseries print\+Adc\+Flag}
 \end{DoxyCompactItemize}
 
 
@@ -136,26 +107,6 @@ This function is executed in case of error occurrence.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
-\mbox{\Hypertarget{main_8c_a02fd73d861ef2e4aabb38c0c9ff82947}\label{main_8c_a02fd73d861ef2e4aabb38c0c9ff82947}} 
-\index{main.c@{main.c}!init@{init}}
-\index{init@{init}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{init()}{init()}}
-{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Fonction qui permet d\textquotesingle{}initialiser la M\+CC. 
-
-Cette fonction est à lancer avant toutes les autres. Elle permet de réinitialiser le système en activant la ligne I\+S\+O\+\_\+\+R\+E\+S\+ET à l\textquotesingle{}état actif. Une fois réalisée, le système est prêt à être utilisé. 
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
 \index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
@@ -169,71 +120,6 @@ The application entry point.
 
 \begin{DoxyRetVals}{Return values}
 {\em int} & \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{main_8c_a04913591bbe439dac886430ebb244959}\label{main_8c_a04913591bbe439dac886430ebb244959}} 
-\index{main.c@{main.c}!speed@{speed}}
-\index{speed@{speed}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{speed()}{speed()}}
-{\footnotesize\ttfamily void speed (\begin{DoxyParamCaption}\item[{int}]{alpha }\end{DoxyParamCaption})}
-
-
-
-Fonction qui contrôle la vitesse de rotation du moteur. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em alpha} & Nombre entier qui contrôle la vitesse.
-\begin{DoxyItemize}
-\item alpha = 0 \+: vitesse maximum dans un sens de rotation.
-\item alpha = 1024 \+: vitesse maximale dans l\textquotesingle{}autre sens de rotation.
-\item alpha = 512 \+: vitesse initiale, le moteur est à l\textquotesingle{}arrêt. 
-\end{DoxyItemize}\\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{main_8c_a38e4b9838f7dc595ffb571461204365b}\label{main_8c_a38e4b9838f7dc595ffb571461204365b}} 
-\index{main.c@{main.c}!startMotor@{startMotor}}
-\index{startMotor@{startMotor}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{startMotor()}{startMotor()}}
-{\footnotesize\ttfamily void start\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Fonction qui démarre le moteur en générant les quatres P\+WM. 
-
-Le moteur reste à l\textquotesingle{}arrêt. 
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{main_8c_ac485965697295992f2599633a3f5126a}\label{main_8c_ac485965697295992f2599633a3f5126a}} 
-\index{main.c@{main.c}!stopMotor@{stopMotor}}
-\index{stopMotor@{stopMotor}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{stopMotor()}{stopMotor()}}
-{\footnotesize\ttfamily void stop\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Fonction qui arrête le moteur en stoppant la génération de signaux P\+WM. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
 \hline
 \end{DoxyRetVals}
 \mbox{\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920}} 
@@ -256,62 +142,3 @@ Configure the main internal regulator output voltage
 Initializes the R\+CC Oscillators according to the specified parameters in the R\+C\+C\+\_\+\+Osc\+Init\+Type\+Def structure.
 
 Initializes the C\+PU, A\+HB and A\+PB buses clocks
-
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{main_8c_a3369aa142a6ea1e89e677006836ee2ff}\label{main_8c_a3369aa142a6ea1e89e677006836ee2ff}} 
-\index{main.c@{main.c}!help@{help}}
-\index{help@{help}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{help}{help}}
-{\footnotesize\ttfamily const uint8\+\_\+t help\mbox{[}$\,$\mbox{]}}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)nYou can use the following functions :"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n pinout : To show the list of the pin."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n init : To initialize the motor."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n start : To start the motor."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n stop : To stop the motor."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n speed = alpha : To set the motor speed to alpha."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n       -\/ alpha = 0 : maximum speed in one direction of rotation."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n       -\/ alpha = 1024 : maximum speed in the other direction of rotation."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n       -\/ alpha = 512 : initial speed, the motor is stopped."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n /!| Too great a difference in speed will cause the motor to stop."}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{main_8c_ac88f7e9fb5c08068a71fdf0108918291}\label{main_8c_ac88f7e9fb5c08068a71fdf0108918291}} 
-\index{main.c@{main.c}!pinout@{pinout}}
-\index{pinout@{pinout}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{pinout}{pinout}}
-{\footnotesize\ttfamily const uint8\+\_\+t pinout\mbox{[}$\,$\mbox{]}}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)nList of the pins :"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n|20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 x  x|"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n|1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 x  x  x|"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n 11 : Blue Phase Top -\/> CH1 (PA8)"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n 12 : Yellow Phase Top -\/> CH2 (PA9)"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n 29 : Blue Phase Bottom -\/> CH1N (PA11)"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n 30 : Yellow Phase Bottom -\/> CH2N (PA12)"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n 33 : Fault Reset Command -\/> ISO\_RESET (PC3)"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{main_8c_a755cb53f91881bf4852a1765ffc09dd6}\label{main_8c_a755cb53f91881bf4852a1765ffc09dd6}} 
-\index{main.c@{main.c}!started@{started}}
-\index{started@{started}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{started}{started}}
-{\footnotesize\ttfamily const uint8\+\_\+t started\mbox{[}$\,$\mbox{]}}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n| Welcome on Nucleo-\/STM32G474 |"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"}}
-\DoxyCodeLine{        \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"}}
-
-\end{DoxyCode}

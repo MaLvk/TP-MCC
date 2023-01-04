@@ -1,0 +1,128 @@
+\hypertarget{tim_8c}{}\doxysection{tim.\+c File Reference}
+\label{tim_8c}\index{tim.c@{tim.c}}
+
+
+This file provides code for the configuration of the T\+IM instances.  
+
+
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}shell.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}M\+C\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+Include dependency graph for tim.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tim_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tim_8c_a061fd02caaa2ac008a9bd1a8cb6b0f03}\label{tim_8c_a061fd02caaa2ac008a9bd1a8cb6b0f03}} 
+\#define {\bfseries E\+N\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT}~65534/2
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tim_8c_a8a3b0ad512a6e6c6157440b68d395eac}\label{tim_8c_a8a3b0ad512a6e6c6157440b68d395eac}} 
+void {\bfseries H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Period\+Elapsed\+Callback} (T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$htim)
+\item 
+\mbox{\Hypertarget{tim_8c_ad1f9d42690163f73f73e5b820c81ca14}\label{tim_8c_ad1f9d42690163f73f73e5b820c81ca14}} 
+void {\bfseries M\+X\+\_\+\+T\+I\+M1\+\_\+\+Init} (void)
+\item 
+\mbox{\Hypertarget{tim_8c_a4b8ff887fd3fdf26605e35927e4ff202}\label{tim_8c_a4b8ff887fd3fdf26605e35927e4ff202}} 
+void {\bfseries M\+X\+\_\+\+T\+I\+M2\+\_\+\+Init} (void)
+\item 
+\mbox{\Hypertarget{tim_8c_a7912f2916786a2c33cb6fb8259ade58c}\label{tim_8c_a7912f2916786a2c33cb6fb8259ade58c}} 
+void {\bfseries M\+X\+\_\+\+T\+I\+M3\+\_\+\+Init} (void)
+\item 
+\mbox{\Hypertarget{tim_8c_aef1e0b132b1af1c923cc420a57180c67}\label{tim_8c_aef1e0b132b1af1c923cc420a57180c67}} 
+void {\bfseries M\+X\+\_\+\+T\+I\+M4\+\_\+\+Init} (void)
+\item 
+\mbox{\Hypertarget{tim_8c_a59716af159bfbbb6023b31354fb23af8}\label{tim_8c_a59716af159bfbbb6023b31354fb23af8}} 
+void {\bfseries H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init} (T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$tim\+\_\+base\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_ac9447b4beb065a4630e94c133d7fd97c}{H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Encoder\+\_\+\+Msp\+Init}} (T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$tim\+\_\+encoder\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_a708f19bbc41b292fccf38f2d9796c46a}{H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Msp\+Post\+Init}} (T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$tim\+Handle)
+\item 
+\mbox{\Hypertarget{tim_8c_adee8ed7d3ebb3a217c27ac10af86ce2f}\label{tim_8c_adee8ed7d3ebb3a217c27ac10af86ce2f}} 
+void {\bfseries H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+De\+Init} (T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$tim\+\_\+base\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_aa45a7ed70c5190ddc921cc667a00e801}{H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Encoder\+\_\+\+Msp\+De\+Init}} (T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$tim\+\_\+encoder\+Handle)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tim_8c_ad90c800324dba69aaa8661663c8c2973}\label{tim_8c_ad90c800324dba69aaa8661663c8c2973}} 
+int {\bfseries print\+Adc\+Flag} = 0
+\item 
+\mbox{\Hypertarget{tim_8c_a37659b664dab2f6ec30664a6174a745a}\label{tim_8c_a37659b664dab2f6ec30664a6174a745a}} 
+int {\bfseries encoder\+Flag} = 0
+\item 
+\mbox{\Hypertarget{tim_8c_ac13ca6c909bec27525b14cf0ad4d02ae}\label{tim_8c_ac13ca6c909bec27525b14cf0ad4d02ae}} 
+int {\bfseries encoder\+Speed}
+\item 
+\mbox{\Hypertarget{tim_8c_a7b677f17bc4c2765ef4802de33751bc1}\label{tim_8c_a7b677f17bc4c2765ef4802de33751bc1}} 
+int {\bfseries it\+\_\+tim1} = 0
+\item 
+\mbox{\Hypertarget{tim_8c_ab7dea030dfe0f101db61fe3a1ffc7542}\label{tim_8c_ab7dea030dfe0f101db61fe3a1ffc7542}} 
+int {\bfseries adc\+Flag}
+\item 
+\mbox{\Hypertarget{tim_8c_a3f98e2db2fa0d8f0cfd87b887576207f}\label{tim_8c_a3f98e2db2fa0d8f0cfd87b887576207f}} 
+uint8\+\_\+t {\bfseries uart\+Tx\+Buffer} \mbox{[}U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]}
+\item 
+\mbox{\Hypertarget{tim_8c_ab1975f5a73dd24f369409d94e4cbcc76}\label{tim_8c_ab1975f5a73dd24f369409d94e4cbcc76}} 
+uint32\+\_\+t {\bfseries adc\+Buffer} \mbox{[}A\+D\+C\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]}
+\item 
+\mbox{\Hypertarget{tim_8c_a25fc663547539bc49fecc0011bd76ab5}\label{tim_8c_a25fc663547539bc49fecc0011bd76ab5}} 
+T\+I\+M\+\_\+\+Handle\+Type\+Def {\bfseries htim1}
+\item 
+\mbox{\Hypertarget{tim_8c_a2c80fd5510e2990a59a5c90d745c716c}\label{tim_8c_a2c80fd5510e2990a59a5c90d745c716c}} 
+T\+I\+M\+\_\+\+Handle\+Type\+Def {\bfseries htim2}
+\item 
+\mbox{\Hypertarget{tim_8c_aac3d2c59ee0e3bbae1b99529a154eb62}\label{tim_8c_aac3d2c59ee0e3bbae1b99529a154eb62}} 
+T\+I\+M\+\_\+\+Handle\+Type\+Def {\bfseries htim3}
+\item 
+\mbox{\Hypertarget{tim_8c_a85788cec5a97ee377e4ee2e74f026484}\label{tim_8c_a85788cec5a97ee377e4ee2e74f026484}} 
+T\+I\+M\+\_\+\+Handle\+Type\+Def {\bfseries htim4}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for the configuration of the T\+IM instances. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2022 S\+T\+Microelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the L\+I\+C\+E\+N\+SE file in the root directory of this software component. If no L\+I\+C\+E\+N\+SE file comes with this software, it is provided A\+S-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tim_8c_aa45a7ed70c5190ddc921cc667a00e801}\label{tim_8c_aa45a7ed70c5190ddc921cc667a00e801}} 
+\index{tim.c@{tim.c}!HAL\_TIM\_Encoder\_MspDeInit@{HAL\_TIM\_Encoder\_MspDeInit}}
+\index{HAL\_TIM\_Encoder\_MspDeInit@{HAL\_TIM\_Encoder\_MspDeInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_Encoder\_MspDeInit()}{HAL\_TIM\_Encoder\_MspDeInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Encoder\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$}]{tim\+\_\+encoder\+Handle }\end{DoxyParamCaption})}
+
+T\+I\+M3 G\+P\+IO Configuration P\+A4 -\/-\/-\/---$>$ T\+I\+M3\+\_\+\+C\+H2 P\+A6 -\/-\/-\/---$>$ T\+I\+M3\+\_\+\+C\+H1\mbox{\Hypertarget{tim_8c_ac9447b4beb065a4630e94c133d7fd97c}\label{tim_8c_ac9447b4beb065a4630e94c133d7fd97c}} 
+\index{tim.c@{tim.c}!HAL\_TIM\_Encoder\_MspInit@{HAL\_TIM\_Encoder\_MspInit}}
+\index{HAL\_TIM\_Encoder\_MspInit@{HAL\_TIM\_Encoder\_MspInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_Encoder\_MspInit()}{HAL\_TIM\_Encoder\_MspInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Encoder\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$}]{tim\+\_\+encoder\+Handle }\end{DoxyParamCaption})}
+
+T\+I\+M3 G\+P\+IO Configuration P\+A4 -\/-\/-\/---$>$ T\+I\+M3\+\_\+\+C\+H2 P\+A6 -\/-\/-\/---$>$ T\+I\+M3\+\_\+\+C\+H1\mbox{\Hypertarget{tim_8c_a708f19bbc41b292fccf38f2d9796c46a}\label{tim_8c_a708f19bbc41b292fccf38f2d9796c46a}} 
+\index{tim.c@{tim.c}!HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}}
+\index{HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_MspPostInit()}{HAL\_TIM\_MspPostInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Msp\+Post\+Init (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$}]{tim\+Handle }\end{DoxyParamCaption})}
+
+T\+I\+M1 G\+P\+IO Configuration P\+A8 -\/-\/-\/---$>$ T\+I\+M1\+\_\+\+C\+H1 P\+A9 -\/-\/-\/---$>$ T\+I\+M1\+\_\+\+C\+H2 P\+A11 -\/-\/-\/---$>$ T\+I\+M1\+\_\+\+C\+H1N P\+A12 -\/-\/-\/---$>$ T\+I\+M1\+\_\+\+C\+H2N

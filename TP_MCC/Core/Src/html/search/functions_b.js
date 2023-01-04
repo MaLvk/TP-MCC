@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['usagefault_5fhandler_79',['UsageFault_Handler',['../stm32g4xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647',1,'stm32g4xx_it.c']]],
-  ['usart2_5firqhandler_80',['USART2_IRQHandler',['../stm32g4xx__it_8c.html#a0ca6fd0e6f77921dd1123539857ba0a8',1,'stm32g4xx_it.c']]]
+  ['tim1_5fup_5ftim16_5firqhandler_123',['TIM1_UP_TIM16_IRQHandler',['../stm32g4xx__it_8c.html#ab19e96bc9fe4483b9fdf25047c61238e',1,'stm32g4xx_it.c']]],
+  ['tim2_5firqhandler_124',['TIM2_IRQHandler',['../stm32g4xx__it_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2',1,'stm32g4xx_it.c']]],
+  ['tim3_5firqhandler_125',['TIM3_IRQHandler',['../stm32g4xx__it_8c.html#ac8e51d2183b5230cbd5481f8867adce9',1,'stm32g4xx_it.c']]],
+  ['tim4_5firqhandler_126',['TIM4_IRQHandler',['../stm32g4xx__it_8c.html#a7133f3f78767503641d307386e68bd28',1,'stm32g4xx_it.c']]]
 ];

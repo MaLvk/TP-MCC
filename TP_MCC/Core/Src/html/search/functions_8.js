@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pendsv_5fhandler_69',['PendSV_Handler',['../stm32g4xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623',1,'stm32g4xx_it.c']]]
+  ['nmi_5fhandler_108',['NMI_Handler',['../stm32g4xx__it_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc',1,'stm32g4xx_it.c']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nmi_5fhandler_20',['NMI_Handler',['../stm32g4xx__it_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc',1,'stm32g4xx_it.c']]]
+  ['init_24',['init',['../MCC_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947',1,'MCC.c']]]
 ];

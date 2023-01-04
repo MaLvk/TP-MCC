@@ -1,0 +1,84 @@
+\hypertarget{adc_8c}{}\doxysection{adc.\+c File Reference}
+\label{adc_8c}\index{adc.c@{adc.c}}
+
+
+This file provides code for the configuration of the A\+DC instances.  
+
+
+{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
+Include dependency graph for adc.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{adc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{adc_8c_af20a88180db1113be1e89266917d148b}\label{adc_8c_af20a88180db1113be1e89266917d148b}} 
+void {\bfseries H\+A\+L\+\_\+\+A\+D\+C\+\_\+\+Conv\+Cplt\+Callback} (A\+D\+C\+\_\+\+Handle\+Type\+Def $\ast$hadc)
+\item 
+void \mbox{\hyperlink{adc_8c_acccd58aa70215a6b184ad242312ffd0c}{M\+X\+\_\+\+A\+D\+C1\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{adc_8c_ac3139540667c403c5dfd37a99c610b1c}{H\+A\+L\+\_\+\+A\+D\+C\+\_\+\+Msp\+Init}} (A\+D\+C\+\_\+\+Handle\+Type\+Def $\ast$adc\+Handle)
+\item 
+void \mbox{\hyperlink{adc_8c_a3f61f2c2af0f122f81a87af8ad7b4360}{H\+A\+L\+\_\+\+A\+D\+C\+\_\+\+Msp\+De\+Init}} (A\+D\+C\+\_\+\+Handle\+Type\+Def $\ast$adc\+Handle)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{adc_8c_ab7dea030dfe0f101db61fe3a1ffc7542}\label{adc_8c_ab7dea030dfe0f101db61fe3a1ffc7542}} 
+int {\bfseries adc\+Flag} = 0
+\item 
+\mbox{\Hypertarget{adc_8c_abcefce21a30038d18452059998c338af}\label{adc_8c_abcefce21a30038d18452059998c338af}} 
+int {\bfseries adc\+Value}
+\item 
+\mbox{\Hypertarget{adc_8c_ab1975f5a73dd24f369409d94e4cbcc76}\label{adc_8c_ab1975f5a73dd24f369409d94e4cbcc76}} 
+uint32\+\_\+t {\bfseries adc\+Buffer} \mbox{[}A\+D\+C\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]}
+\item 
+\mbox{\Hypertarget{adc_8c_a22b804736f5648d52f639b2647d4ed13}\label{adc_8c_a22b804736f5648d52f639b2647d4ed13}} 
+A\+D\+C\+\_\+\+Handle\+Type\+Def {\bfseries hadc1}
+\item 
+\mbox{\Hypertarget{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}\label{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}} 
+D\+M\+A\+\_\+\+Handle\+Type\+Def {\bfseries hdma\+\_\+adc1}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for the configuration of the A\+DC instances. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2022 S\+T\+Microelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the L\+I\+C\+E\+N\+SE file in the root directory of this software component. If no L\+I\+C\+E\+N\+SE file comes with this software, it is provided A\+S-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{adc_8c_a3f61f2c2af0f122f81a87af8ad7b4360}\label{adc_8c_a3f61f2c2af0f122f81a87af8ad7b4360}} 
+\index{adc.c@{adc.c}!HAL\_ADC\_MspDeInit@{HAL\_ADC\_MspDeInit}}
+\index{HAL\_ADC\_MspDeInit@{HAL\_ADC\_MspDeInit}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_ADC\_MspDeInit()}{HAL\_ADC\_MspDeInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+A\+D\+C\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{A\+D\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{adc\+Handle }\end{DoxyParamCaption})}
+
+A\+D\+C1 G\+P\+IO Configuration P\+C2 -\/-\/-\/---$>$ A\+D\+C1\+\_\+\+I\+N8\mbox{\Hypertarget{adc_8c_ac3139540667c403c5dfd37a99c610b1c}\label{adc_8c_ac3139540667c403c5dfd37a99c610b1c}} 
+\index{adc.c@{adc.c}!HAL\_ADC\_MspInit@{HAL\_ADC\_MspInit}}
+\index{HAL\_ADC\_MspInit@{HAL\_ADC\_MspInit}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_ADC\_MspInit()}{HAL\_ADC\_MspInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+A\+D\+C\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{A\+D\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{adc\+Handle }\end{DoxyParamCaption})}
+
+Initializes the peripherals clocks
+
+A\+D\+C1 G\+P\+IO Configuration P\+C2 -\/-\/-\/---$>$ A\+D\+C1\+\_\+\+I\+N8\mbox{\Hypertarget{adc_8c_acccd58aa70215a6b184ad242312ffd0c}\label{adc_8c_acccd58aa70215a6b184ad242312ffd0c}} 
+\index{adc.c@{adc.c}!MX\_ADC1\_Init@{MX\_ADC1\_Init}}
+\index{MX\_ADC1\_Init@{MX\_ADC1\_Init}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{MX\_ADC1\_Init()}{MX\_ADC1\_Init()}}
+{\footnotesize\ttfamily void M\+X\+\_\+\+A\+D\+C1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Common config
+
+Configure the A\+DC multi-\/mode
+
+Configure Regular Channel

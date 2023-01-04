@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['error_5fhandler_4',['Error_Handler',['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'main.c']]],
-  ['exti15_5f10_5firqhandler_5',['EXTI15_10_IRQHandler',['../stm32g4xx__it_8c.html#a738473a5b43f6c92b80ce1d3d6f77ed9',1,'stm32g4xx_it.c']]],
-  ['exti1_5firqhandler_6',['EXTI1_IRQHandler',['../stm32g4xx__it_8c.html#a49cfdd46eb8d0ef3e1987514aa9343dc',1,'stm32g4xx_it.c']]]
+  ['debugmon_5fhandler_5',['DebugMon_Handler',['../stm32g4xx__it_8c.html#adbdfb05858cc36fc520974df37ec3cb0',1,'stm32g4xx_it.c']]],
+  ['dma_2ec_6',['dma.c',['../dma_8c.html',1,'']]],
+  ['dma1_5fchannel1_5firqhandler_7',['DMA1_Channel1_IRQHandler',['../stm32g4xx__it_8c.html#a7b6fac3d670a4860ebec8a961d5c4a73',1,'stm32g4xx_it.c']]]
 ];

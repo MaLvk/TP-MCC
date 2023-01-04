@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debugmon_5fhandler_54',['DebugMon_Handler',['../stm32g4xx__it_8c.html#adbdfb05858cc36fc520974df37ec3cb0',1,'stm32g4xx_it.c']]]
+  ['busfault_5fhandler_86',['BusFault_Handler',['../stm32g4xx__it_8c.html#a850cefb17a977292ae5eb4cafa9976c3',1,'stm32g4xx_it.c']]]
 ];
