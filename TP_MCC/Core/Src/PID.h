@@ -1,3 +1,10 @@
+/**
+  ******************************************************************************
+  * @file    PID.h
+  * @brief   This file provides code for the configuration
+  *          of the PID instances.
+  ******************************************************************************
+  */
 #ifndef PID_CONTROLLER_H
 #define PID_CONTROLLER_H
 
