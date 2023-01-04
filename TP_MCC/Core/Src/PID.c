@@ -6,6 +6,11 @@
   */
 #include "PID.h"
 
+/**
+  * @brief Fonction qui initialise les paramètres du PID.
+  * @param pid pointeur vers une structure de PID qui contient les paramètres du PID
+  * @retval None
+  */
 void PIDController_Init(PIDController *pid) {
 
 	/* Clear controller variables */
@@ -16,6 +21,13 @@ void PIDController_Init(PIDController *pid) {
 
 }
 
+/**
+  * @brief Fonction qui met à jour les paramètres du PID.
+  * @param pid pointeur vers une structure de PID qui contient les paramètres du PID
+  * setpoint entrée que l'on souhaite
+  * measurement valeur mesurée
+  * @retval out Sortie du PID : un flottant entre 0 et 1 qui correspond au rapport cyclique du moteur.
+  */
 float PIDController_Update(PIDController *pid, float setpoint, float measurement) {
 
 	/*
