@@ -6,8 +6,7 @@ P\+ID program body.
 
 
 {\ttfamily \#include \char`\"{}P\+I\+D.\+h\char`\"{}}\newline
-Include dependency graph for P\+I\+D.\+c\+:
-\nopagebreak
+Include dependency graph for P\+I\+D.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,14 +16,55 @@ Include dependency graph for P\+I\+D.\+c\+:
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{PID_8c_a4d0a0d08e8e573745b1d5bdf7bcb4508}\label{PID_8c_a4d0a0d08e8e573745b1d5bdf7bcb4508}} 
-void {\bfseries P\+I\+D\+Controller\+\_\+\+Init} (\mbox{\hyperlink{structPIDController}{P\+I\+D\+Controller}} $\ast$pid)
-\item 
-\mbox{\Hypertarget{PID_8c_a29a73053b6121a708ff95a7eaedc4741}\label{PID_8c_a29a73053b6121a708ff95a7eaedc4741}} 
-float {\bfseries P\+I\+D\+Controller\+\_\+\+Update} (\mbox{\hyperlink{structPIDController}{P\+I\+D\+Controller}} $\ast$pid, float setpoint, float measurement)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{PID_8c_a4d0a0d08e8e573745b1d5bdf7bcb4508}{P\+I\+D\+Controller\+\_\+\+Init}} (\mbox{\hyperlink{structPIDController}{P\+I\+D\+Controller}} $\ast$pid)
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise les paramètres du P\+ID. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{PID_8c_a29a73053b6121a708ff95a7eaedc4741}{P\+I\+D\+Controller\+\_\+\+Update}} (\mbox{\hyperlink{structPIDController}{P\+I\+D\+Controller}} $\ast$pid, float setpoint, float measurement)
+\begin{DoxyCompactList}\small\item\em Fonction qui met à jour les paramètres du P\+ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 P\+ID program body. 
 
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{PID_8c_a4d0a0d08e8e573745b1d5bdf7bcb4508}\label{PID_8c_a4d0a0d08e8e573745b1d5bdf7bcb4508}} 
+\index{PID.c@{PID.c}!PIDController\_Init@{PIDController\_Init}}
+\index{PIDController\_Init@{PIDController\_Init}!PID.c@{PID.c}}
+\doxysubsubsection{\texorpdfstring{PIDController\_Init()}{PIDController\_Init()}}
+{\footnotesize\ttfamily void P\+I\+D\+Controller\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPIDController}{P\+I\+D\+Controller}} $\ast$}]{pid }\end{DoxyParamCaption})}
+
+
+
+Fonction qui initialise les paramètres du P\+ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pid} & pointeur vers une structure de P\+ID qui contient les paramètres du P\+ID \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{PID_8c_a29a73053b6121a708ff95a7eaedc4741}\label{PID_8c_a29a73053b6121a708ff95a7eaedc4741}} 
+\index{PID.c@{PID.c}!PIDController\_Update@{PIDController\_Update}}
+\index{PIDController\_Update@{PIDController\_Update}!PID.c@{PID.c}}
+\doxysubsubsection{\texorpdfstring{PIDController\_Update()}{PIDController\_Update()}}
+{\footnotesize\ttfamily float P\+I\+D\+Controller\+\_\+\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPIDController}{P\+I\+D\+Controller}} $\ast$}]{pid,  }\item[{float}]{setpoint,  }\item[{float}]{measurement }\end{DoxyParamCaption})}
+
+
+
+Fonction qui met à jour les paramètres du P\+ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pid} & pointeur vers une structure de P\+ID qui contient les paramètres du P\+ID setpoint entrée que l\textquotesingle{}on souhaite measurement valeur mesurée \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em out} & Sortie du P\+ID \+: un flottant entre 0 et 1 qui correspond au rapport cyclique du moteur. \\
+\hline
+\end{DoxyRetVals}

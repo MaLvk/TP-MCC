@@ -91,16 +91,97 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4d0a0d08e8e573745b1d5bdf7bcb4508"><td class="memItemLeft" align="right" valign="top"><a id="a4d0a0d08e8e573745b1d5bdf7bcb4508"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PIDController_Init</b> (<a class="el" href="structPIDController.html">PIDController</a> *pid)</td></tr>
+<tr class="memitem:a4d0a0d08e8e573745b1d5bdf7bcb4508"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PID_8h.html#a4d0a0d08e8e573745b1d5bdf7bcb4508">PIDController_Init</a> (<a class="el" href="structPIDController.html">PIDController</a> *pid)</td></tr>
+<tr class="memdesc:a4d0a0d08e8e573745b1d5bdf7bcb4508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui initialise les paramètres du PID.  <a href="PID_8h.html#a4d0a0d08e8e573745b1d5bdf7bcb4508">More...</a><br /></td></tr>
 <tr class="separator:a4d0a0d08e8e573745b1d5bdf7bcb4508"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29a73053b6121a708ff95a7eaedc4741"><td class="memItemLeft" align="right" valign="top"><a id="a29a73053b6121a708ff95a7eaedc4741"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>PIDController_Update</b> (<a class="el" href="structPIDController.html">PIDController</a> *pid, float setpoint, float measurement)</td></tr>
+<tr class="memitem:a29a73053b6121a708ff95a7eaedc4741"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PID_8h.html#a29a73053b6121a708ff95a7eaedc4741">PIDController_Update</a> (<a class="el" href="structPIDController.html">PIDController</a> *pid, float setpoint, float measurement)</td></tr>
+<tr class="memdesc:a29a73053b6121a708ff95a7eaedc4741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui met à jour les paramètres du PID.  <a href="PID_8h.html#a29a73053b6121a708ff95a7eaedc4741">More...</a><br /></td></tr>
 <tr class="separator:a29a73053b6121a708ff95a7eaedc4741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file provides code for the configuration of the PID instances. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a4d0a0d08e8e573745b1d5bdf7bcb4508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d0a0d08e8e573745b1d5bdf7bcb4508">&#9670;&nbsp;</a></span>PIDController_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PIDController_Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPIDController.html">PIDController</a> *&#160;</td>
+          <td class="paramname"><em>pid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui initialise les paramètres du PID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pid</td><td>pointeur vers une structure de PID qui contient les paramètres du PID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a29a73053b6121a708ff95a7eaedc4741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a73053b6121a708ff95a7eaedc4741">&#9670;&nbsp;</a></span>PIDController_Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PIDController_Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPIDController.html">PIDController</a> *&#160;</td>
+          <td class="paramname"><em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>setpoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>measurement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui met à jour les paramètres du PID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pid</td><td>pointeur vers une structure de PID qui contient les paramètres du PID setpoint entrée que l'on souhaite measurement valeur mesurée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">out</td><td>Sortie du PID : un flottant entre 0 et 1 qui correspond au rapport cyclique du moteur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
