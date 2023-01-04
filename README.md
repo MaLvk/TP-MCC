@@ -53,8 +53,16 @@ La commande "start" dans le shell ou l'appui sur le bouton bleu permettra de dé
 
 ### Commande du hacheur
 Après lecture de la documentation, nous savons comment brancher les pins du hacheur avec ceux de la carte STM32. Nous avons choisis les phases Yellow et Red.
+![image](https://user-images.githubusercontent.com/93315025/210566867-9b4654bc-0e96-4144-998e-0cb4a260e89e.png)
+- 12 : Yellow Phase Top
+- 13 : Red Phase Top
+- 30 : Yellow Phase Bottom
+- 31 : Red Phase Bottom
+- 33 : Fault Reset Command
+- 16 : Yellow Phase Hall Current
+- A et B sont les deux pistes de l'encodeur.
 
-[insérer image + liste des pins]
+Les pins 12, 13, 30 et 31 servent pour envoyer les PWM au hacheur et ainsi commandé les transistors. La pin 16 nous servira plus tard pour obtenir une mesure de courant et le pin 33 permet d'enlever les sécurités de l'onduleur en passant la pin ISO_RESET à l'état haut pendant 2us au minimum.
 
 La commande "pinout" du shell permet de résumer ces différents branchements. La commande "init" permet quand à elle de réaliser la séquence d'amorçage du hacheur en venant toggle la pin ISO_RESET.
 
@@ -77,9 +85,12 @@ Pour la mesure du courant, on configure un ADC pour faire la mesure d'une des de
 
 ### Capteur position
 
-Configurez un timer en encodeur mode pour récupérez à intervalle de temps régulier la position de votre moteur.
-Déterminez la vitesse de votre moteur en faisant la différence de position entre 2 instants.
-Veuillez à ne pas dépasser les valeurs max et min de votre compteur, vous pouvez par exemple après chaque mesure, refixer la valeur du compteur à VAL_MAX/2
+On configure le timer 3 en encodeur mode pour récupérez à intervalle de temps régulier la position de votre moteur. On obtient la vitesse du moteur en faisant la différence de position entre 2 instants. Pour éviter de dépasser les valeurs maximales et minimales de notre compteur, on fixe la valeur du compteur à VALEUR_MAX/2 après chaque mesure.
+
+La commande "get pos" permet d'afficher les valeurs de la vitesse en rad/s toutes les secondes dans le shell.
+
+
+Nous avons pris la liberté de rajouter une commande "quit" permettant de quitter les affichages toutes les secondes (de vitesse ou de courant) pour pouvoir écrire tranquillement nos commandes dans le shell.
 
 ## Asservissement en courant et en vitesse 
 ### En courant
